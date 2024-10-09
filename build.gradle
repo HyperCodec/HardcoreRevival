@@ -24,10 +24,10 @@ compileJava {
 
 version = major_version + "." + minor_version + "." + BUILD_NUMBER
 group = "net.blay09.mods"
-archivesBaseName = mod_name + "_" + minecraft_version
+archivesBaseName = mod_name + "_forked_" + minecraft_version
 
 minecraft {
-    mappings channel: 'snapshot', version: '20171003-1.12'
+    mappings channel: mappings_channel, version: mappings_version
 
     runs {
         client {

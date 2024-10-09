@@ -236,7 +236,7 @@ public class ClientProxy extends CommonProxy {
         if (mc.player != null) {
             if (ModConfig.glowOnDeath) {
                 mc.player.setGlowing(false);
-                mc.player.setFlag(6, false); // glowing flag
+                //mc.player.setFlag(6, false); // glowing flag
             }
             mc.player.isDead = true;
         }

@@ -110,7 +110,7 @@ public class RescueHandler {
                     newPlayer.experience = target.experience;
 
                     newPlayer.extinguish();
-                    newPlayer.setFlag(0, false); // burning flag
+                    //newPlayer.setFlag(0, false); // burning flag
 
                     newPlayer.setScore(target.getScore());
 

@@ -18,10 +18,10 @@ public class HandlerRevivalSuccess implements IMessageHandler<MessageRevivalSucc
 			Minecraft mc = Minecraft.getMinecraft();
 			if (message.getEntityId() == mc.player.getEntityId()) {
 				mc.player.extinguish();
-				mc.player.setFlag(0, false); // burning flag
+				//mc.player.setFlag(0, false); // burning flag
 				if (ModConfig.glowOnDeath) {
 					mc.player.setGlowing(false);
-					mc.player.setFlag(6, false); // glowing flag
+					//mc.player.setFlag(6, false); // glowing flag
 				}
 				mc.displayGuiScreen(null);
 			}
