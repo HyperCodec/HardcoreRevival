@@ -51,6 +51,10 @@ public class ModConfig {
 	@Config.LangKey("config.hardcorerevival.glowOnDeath")
 	public static boolean glowOnDeath = true;
 
+	@Config.Name("Hardcore Only")
+	@Config.Comment("Mod only does things when the current world has hardcore enabled.")
+	public static boolean hardcoreOnly = true;
+
 	// These would be cool but they'd require coremod hacks and it's not worth it:
 
 //	@Config.Name("Allow Unarmed Melee when knocked out")

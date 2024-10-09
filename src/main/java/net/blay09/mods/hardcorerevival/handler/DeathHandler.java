@@ -34,8 +34,12 @@ public class DeathHandler {
                 return;
             }
 
-            // If IGNORE_REVIVAL_DEATH is set, this should be treated as a normal death
-            if (event.getSource() == HardcoreRevival.notRescuedInTime || player.getEntityData().getBoolean(IGNORE_REVIVAL_DEATH)) {
+            // If IGNORE_REVIVAL_DEATH is set, this should be treated as a normal death.
+            // also if not in hardcore world while HARDCORE_ONLY is enabled.
+            if (event.getSource() == HardcoreRevival.notRescuedInTime ||
+                    player.getEntityData().getBoolean(IGNORE_REVIVAL_DEATH) ||
+                    (ModConfig.hardcoreOnly && !player.getEntityWorld().getWorldInfo().isHardcoreModeEnabled())
+            ) {
                 return;
             }
 
