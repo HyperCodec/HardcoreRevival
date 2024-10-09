@@ -1,14 +1,14 @@
 [
 {
-  "modid": "hardcorerevival",
+  "modid": "hr-hypercodec-fork",
   "name": "Hardcore Revival",
-  "description": "Help your friends back up after they die",
+  "description": "Fork of Hardcore Revival",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["BlayTheNinth"],
-  "credits": "BlayTheNinth",
+  "authorList": ["BlayTheNinth", "HyperCodec"],
+  "credits": "BlayTheNinth (forked by HyperCodec)",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []

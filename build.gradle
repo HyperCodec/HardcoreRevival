@@ -3,18 +3,15 @@ buildscript {
         jcenter()
         maven {
             name = "forge"
-            url = "http://files.minecraftforge.net/maven"
+            url = "https://maven.minecraftforge.net/"
         }
+        mavenCentral()
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:3.+'
     }
 }
-apply plugin: 'net.minecraftforge.gradle.forge'
-
-apply from: 'gradle/scripts/common.gradle'
-apply from: 'gradle/scripts/with-at.gradle'
-apply from: 'gradle/scripts/with-api.gradle'
+apply plugin: 'net.minecraftforge.gradle'
 
 apply from: 'dependencies.gradle'
 
@@ -30,20 +27,35 @@ group = "net.blay09.mods"
 archivesBaseName = mod_name + "_" + minecraft_version
 
 minecraft {
-    version = minecraft_version + "-" + forge_version
-    runDir = "run"
-    //useDepAts = true
-    mappings = mappings_version
+    mappings channel: 'snapshot', version: '20171003-1.12'
+
+    runs {
+        client {
+            workingDirectory project.file('run')
+
+            // Recommended logging data for a userdev environment
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+
+            // Recommended logging level for the console
+            property 'forge.logging.console.level', 'debug'
+        }
+
+        server {
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+
+            property 'forge.logging.console.level', 'debug'
+        }
+    }
 }
 
 processResources{
     inputs.property "version", project.version
-    inputs.property "mcversion", project.minecraft.version
+    inputs.property "mcversion", minecraft_version
 
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
                 
-        expand 'version':project.version, 'mcversion':project.minecraft.version
+        expand 'version':project.version, 'mcversion':minecraft_version
     }
         
     from(sourceSets.main.resources.srcDirs) {
